@@ -23,4 +23,10 @@ public class ApiController {
     public String name(@PathVariable String name) {
         return name;
     }
+
+    @GetMapping("/path-variable/{name}")      // PathVariable 방식 : path명이 변하는 경우
+    public String pathVairable(@PathVariable String name) {
+        return name;
+    }
+
 }
