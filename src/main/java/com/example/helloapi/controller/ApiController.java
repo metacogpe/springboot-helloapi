@@ -1,5 +1,6 @@
 package com.example.helloapi.controller;
 
+import com.example.helloapi.dto.UserRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.SecureRandom;
@@ -61,4 +62,12 @@ public class ApiController {
     ) {
         return name+" "+email+" "+age;
     }
+
+    // 명시적으로 query parameters를 객체(UserRequest)를 활용하여 정의 : 실무에서 주로 사용하여 추천
+    @GetMapping(path = "query-param-fixed-multi")
+    public String queryParamFixedMulti(UserRequest userRequest) {
+
+        return userRequest.toString();
+    }
+
 }
