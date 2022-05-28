@@ -53,5 +53,12 @@ public class ApiController {
         return sb.toString();
     }
 
-
+    @GetMapping(path = "query-param-fixed")  // 명시적으로 query parameters를 지정하는 방법
+    public String queryParamFixed(
+            @RequestParam String name,
+            @RequestParam String email,
+            @RequestParam int age
+    ) {
+        return name+" "+email+" "+age;
+    }
 }
