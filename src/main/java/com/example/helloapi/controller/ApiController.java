@@ -1,9 +1,9 @@
 package com.example.helloapi.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.security.SecureRandom;
+import java.util.Map;
 
 @RestController                     // 아래 클래스가 rest api 처리함을 알림
 @RequestMapping("/api")          // 주소 할당 : URL의 공통 부분
@@ -14,7 +14,7 @@ public class ApiController {
         return "hello SpringBoot!!!";
     }
 
-    @GetMapping(path = "/hello-path")  // http://localhost:9090/api/get/hello-path
+    @GetMapping(path = "/hello-path")  // http://localhost:9090/api/hello-path
     public String getHello() {
         return "get Hello";
     }
@@ -33,5 +33,25 @@ public class ApiController {
     public String pathName(@PathVariable(name = "name") String pathName) {
         return pathName;
     }
+
+    // Query parameter
+    // ?key1=value1?key2=value2
+    // http://localhost:9090/api/query-param?user=steve&email=steve@gmail.com&age=30
+    @GetMapping(path = "query-param")     //
+    public String queryParma(@RequestParam Map<String, String> queryParam) {  //key=value 형태이므로, Map활용 ; queryParam 변수에 key/value로 받기
+
+        StringBuilder sb = new StringBuilder();
+
+        queryParam.entrySet().forEach( entry -> {   // queryParam.entrySet().forEach()에 대해 entry로 리턴하는 entrySet() 활용 ; 람다식
+            System.out.println(entry.getKey());     // 리턴된 키
+            System.out.println(entry.getValue());   // 리턴된 value
+            System.out.println("\n");
+
+            sb.append(entry.getKey()+" = "+entry.getValue()+"\n");
+        });
+
+        return sb.toString();
+    }
+
 
 }
