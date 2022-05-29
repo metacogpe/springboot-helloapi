@@ -1,10 +1,22 @@
 package com.example.helloapi.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class CustomerRequestDto {
     private String account;
     private String email;
     private String address;
     private String password;
+    @JsonProperty("phone_number")   // for snake case
+    private String phoneNumber;
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public String getAccount() {
         return account;
@@ -40,11 +52,12 @@ public class CustomerRequestDto {
 
     @Override
     public String toString() {
-        return "PostRequestDto{" +
+        return "CustomerRequestDto{" +
                 "account='" + account + '\'' +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 ", password='" + password + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
 }
