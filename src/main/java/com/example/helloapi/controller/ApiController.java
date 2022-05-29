@@ -72,11 +72,18 @@ public class ApiController {
 
     // POST
     @PostMapping("/users")
+        /*
+        {
+          "account":"user01",
+          "email":"abc@gmail.com",
+          "address":"seoul"
+        }
+    */
     public void user(@RequestBody  Map<String, Object> postRequestData) {
 
-        postRequestData.entrySet().forEach(stringObjectEntry -> {
-            System.out.println("key = " + stringObjectEntry.getKey());
-            System.out.println("value = " + stringObjectEntry.getValue());
+        postRequestData.forEach((key, value) -> {  //forEach recommended by IntelliJ
+            System.out.println("key = " + key);
+            System.out.println("value = " + value);
         });
     }
 
