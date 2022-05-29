@@ -1,9 +1,9 @@
 package com.example.helloapi.controller;
 
+import com.example.helloapi.dto.CustomerRequestDto;
 import com.example.helloapi.dto.UserRequest;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.SecureRandom;
 import java.util.Map;
 
 @RestController                     // 아래 클래스가 rest api 처리함을 알림
@@ -87,4 +87,9 @@ public class ApiController {
         });
     }
 
+    @PostMapping("/customers")  // POST with dto
+    public void userDto(@RequestBody CustomerRequestDto postRequestData) {
+
+        System.out.println(postRequestData);
+    }
 }
