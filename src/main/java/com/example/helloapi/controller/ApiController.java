@@ -63,11 +63,21 @@ public class ApiController {
         return name+" "+email+" "+age;
     }
 
-    // 명시적으로 query parameters를 객체(UserRequest)를 활용하여 정의 : 실무에서 주로 사용하여 추천
+    // 명시적으로 query parameters를 객체(UserRequest)를 활용하여 정의 : 실무에서 주로 사용하여 추
     @GetMapping(path = "query-param-fixed-multi")
     public String queryParamFixedMulti(UserRequest userRequest) {
 
         return userRequest.toString();
+    }
+
+    // POST
+    @PostMapping("/users")
+    public void user(@RequestBody  Map<String, Object> postRequestData) {
+
+        postRequestData.entrySet().forEach(stringObjectEntry -> {
+            System.out.println("key = " + stringObjectEntry.getKey());
+            System.out.println("value = " + stringObjectEntry.getValue());
+        });
     }
 
 }
