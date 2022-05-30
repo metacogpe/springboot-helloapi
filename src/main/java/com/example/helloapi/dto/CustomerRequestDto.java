@@ -10,6 +10,10 @@ public class CustomerRequestDto {
     @JsonProperty("phone_number")   // for snake case
     private String phoneNumber;
 
+    @JsonProperty("OTP")
+    private String OTP;
+
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -58,6 +62,7 @@ public class CustomerRequestDto {
                 ", address='" + address + '\'' +
                 ", password='" + password + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", OTP='" + OTP + '\'' +
                 '}';
     }
 }
