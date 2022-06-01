@@ -1,5 +1,6 @@
 package com.example.helloapi.controller;
 
+import com.example.helloapi.dto.CustomerCar;
 import com.example.helloapi.dto.CustomerRequestDto;
 import com.example.helloapi.dto.UserRequest;
 import org.springframework.web.bind.annotation.*;
@@ -91,5 +92,13 @@ public class ApiController {
     public void userDto(@RequestBody CustomerRequestDto postRequestData) {
 
         System.out.println(postRequestData);
+    }
+
+    //PUT
+    @PutMapping("/customers-cars")
+    public CustomerCar editCustomer(@RequestBody CustomerCar customerCar) {
+        System.out.println("customerCar = " + customerCar);
+        return customerCar;    // 받은 값을 response
+
     }
 }
