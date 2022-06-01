@@ -109,4 +109,10 @@ public class ApiController {
         return customerCar;    // 받은 값을 response
 
     }
+
+    //DELETE
+    @DeleteMapping("/customers/{userId}")
+    public void deleteCustomer(@PathVariable String userId, @RequestParam String account) {
+        System.out.println("userId = " + userId + ", account = " + account);
+    }
 }
