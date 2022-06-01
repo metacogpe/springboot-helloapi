@@ -101,4 +101,12 @@ public class ApiController {
         return customerCar;    // 받은 값을 response
 
     }
+
+    //PUT with PathVariable
+    @PutMapping("/customers-cars/{userId}")
+    public CustomerCar editCustomer(@RequestBody CustomerCar customerCar, @PathVariable(name = "userId") Long id) {
+        System.out.println("id = " + id);
+        return customerCar;    // 받은 값을 response
+
+    }
 }
